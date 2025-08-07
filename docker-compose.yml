@@ -1,0 +1,16 @@
+version: '3.8'
+ 
+services:
+  slm-ollama:
+    container_name: slm-ollama
+    build: .
+    ports:
+      - "11434:11434"
+    volumes:
+      - slm-ollama_data:/root/.ollama
+    restart: unless-stopped
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+ 
+volumes:
+  slm-ollama_data:
